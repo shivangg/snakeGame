@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
-import Platform from './components/Platform'
+import Game from './components/Game'
 
-ReactDOM.render(<Platform />, document.getElementById('root') );
+ReactDOM.render(<Game />, document.getElementById('root') );

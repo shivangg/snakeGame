@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 .Platform {
   position: absolute;
   left: 25%;
@@ -5,11 +9,16 @@
   background-color: green;
 }
 
-.Snake {
-  position: absolute;  
+.SnakeBody {
+  position: absolute;
+  background-color: yellow;
+}
+
+.SnakeHead {
+  position: absolute;
   background-color: #0b9ef3;
 }
 
-body{
-  background-color: black;
+.Food {
+  position: absolute;
 }
