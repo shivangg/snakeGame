@@ -16,13 +16,22 @@ class Platform extends React.Component {
         height: 5
       }
     };
+    // initial state
     this.state = {
+      head: {
+        x: 50,
+        y: 50
+      },
       direction: 'ArrowRight'
     }
   }
   componentDidMount() {
     window.addEventListener('keydown', event => {
       this.setState({
+        head: {
+          x: 50,
+          y: 50
+        },
         direction: event.key
       })
     });
@@ -31,9 +40,8 @@ class Platform extends React.Component {
 
   render() {
     return (
-      <div style={this.sizes.platform} className='Platform'>
-        {/* <SnakeHead /> */}
-        <SnakeBody direction={this.state.direction} />
+      <div tabIndex="1" style={this.sizes.platform} className='Platform'>
+        <SnakeBody head={this.state.head} direction={this.state.direction} />
       </div>
     );
   }
