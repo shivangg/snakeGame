@@ -11,14 +11,18 @@ body {
 
 .SnakeBody {
   position: absolute;
+  border: black solid 1px;
   background-color: yellow;
 }
 
 .SnakeHead {
   position: absolute;
+  border: black solid 1px;
   background-color: #0b9ef3;
 }
 
 .Food {
   position: absolute;
+  border: black solid 1px;
+  background-color: red;
 }
