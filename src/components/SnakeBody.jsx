@@ -59,7 +59,7 @@ class SnakeBody extends React.Component {
   }
 
   moveSnake(dir) {
-    this.checkFood();
+    let isFoodEaten = this.checkFood();
     this.setState(state => {
       let newHead = {
         x: state.snakeBody[0].x,
@@ -89,7 +89,9 @@ class SnakeBody extends React.Component {
       let newState = {
         snakeBody: [newHead, ...state.snakeBody]
       };
-      newState.snakeBody.pop();
+      if (!isFoodEaten) {
+        newState.snakeBody.pop();
+      }
       return newState;
     })
   }
@@ -108,7 +110,10 @@ class SnakeBody extends React.Component {
     if (x1 === x2 && y1 === y2) {
       console.log("Lets eat!");
       this.dropFood();
+      return true;
     }
+
+    return false;
   }
 
   dropFood() {
