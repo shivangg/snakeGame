@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "shivangg.github.io/snakeGame/precache-manifest.41ee45ac13818b191d27383782142e7e.js"
+  "knowingabout.me/snakeGame/precache-manifest.4ea14e96478d0b72c4e3e2cc7bacf7f8.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("shivangg.github.io/snakeGame/index.html", {
+workbox.routing.registerNavigationRoute("knowingabout.me/snakeGame/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
