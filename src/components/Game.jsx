@@ -2,7 +2,7 @@ import React from 'react';
 // import SnakeHead from './SnakeHead';
 import SnakeBody from './SnakeBody';
 
-class Platform extends React.Component {
+class Game extends React.Component {
 
   constructor(props) {
     super(props);
@@ -22,19 +22,31 @@ class Platform extends React.Component {
         x: 50,
         y: 50
       },
-      direction: 'ArrowRight'
+      direction: 'ArrowRight',
     }
   }
+
   componentDidMount() {
     window.addEventListener('keydown', event => {
-      this.setState({
-        head: {
-          x: 50,
-          y: 50
-        },
-        direction: event.key
+      this.setState(state => {
+
+        let oppDirGiven = (currentDir, newDir) => {
+          const oppDir = {
+            'ArrowRight': 'ArrowLeft',
+            'ArrowLeft': 'ArrowRight',
+            'ArrowUp': 'ArrowDown',
+            'ArrowDown': 'ArrowUp'
+          }
+          return currentDir === oppDir[newDir]
+        }
+
+        if (!oppDirGiven(state.direction, event.key )) {
+          return ({
+            direction: event.key,
+          });
+        }
       })
-    });
+    })
   }
 
 
@@ -49,4 +61,4 @@ class Platform extends React.Component {
 
 
 
-export default Platform;
+export default Game;
