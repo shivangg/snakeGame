@@ -25,4 +25,5 @@ body {
   position: absolute;
   border: black solid 1px;
   background-color: red;
+  border-radius: 3px;
 }
