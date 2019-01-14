@@ -2,9 +2,8 @@ import React from 'react';
 
 function SnakeBodyBlock(props) {
   const style = {
-    border: 'black solid 1px',
-    height: '5%',
-    width: '5%',
+    height: props.size + '%',
+    width: props.size + '%',
     left: props.location.x + '%',
     top: props.location.y + '%'
   }

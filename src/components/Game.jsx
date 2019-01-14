@@ -18,10 +18,6 @@ class Game extends React.Component {
     };
     // initial state
     this.state = {
-      head: {
-        x: 50,
-        y: 50
-      },
       direction: 'ArrowRight',
     }
   }
@@ -53,7 +49,7 @@ class Game extends React.Component {
   render() {
     return (
       <div tabIndex="1" style={this.sizes.platform} className='Platform'>
-        <SnakeBody head={this.state.head} direction={this.state.direction} />
+        <SnakeBody size={2} direction={this.state.direction} />
       </div>
     );
   }

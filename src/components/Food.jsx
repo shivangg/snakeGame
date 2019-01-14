@@ -3,8 +3,8 @@ import React from 'react';
 function Food(props) {
 
   const style = {
-    width: '5%',
-    height: '5%',
+    width: props.size + '%',
+    height:  props.size + '%',
     left: props.foodLocation.x + '%',
     top: props.foodLocation.y + '%'
   };
