@@ -27,3 +27,20 @@ body {
   background-color: red;
   border-radius: 3px;
 }
+
+.current-score {
+  position: absolute;
+  color: white;
+  font-size: small;
+  top: 40%;
+  left: -45%;
+  right: 115%;
+}
+
+.best-score {
+  position: absolute;
+  color: white;
+  font-size: small;
+  top: 25%;
+  left: 115%;
+}

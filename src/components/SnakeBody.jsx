@@ -1,6 +1,7 @@
 import React from 'react';
 import SnakeBodyBlock from './SnakeBodyBlock';
 import Food from './Food';
+import CurrentScore from "./CurrentScore";
 
 class SnakeBody extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class SnakeBody extends React.Component {
     this.snakeBlockSize = parseInt(this.props.size, 10);
 
     // initial snake near middle
-    let headLocation = 50 - 50 % this.snakeBlockSize ;
+    let headLocation = 50 - 50 % this.snakeBlockSize;
 
     let snakeBody = [
       {
@@ -25,10 +26,13 @@ class SnakeBody extends React.Component {
       }
     ];
 
+    this.initSnakeLength = snakeBody.length;
+
     this.state = {
       snakeBody: snakeBody,
       foodLocation: this.getNewLocation(this.snakeBlockSize),
-      currentDir: this.props.direction
+      currentDir: this.props.direction,
+      gameOver: false
     };
 
     this.moveSnake = this.moveSnake.bind(this);
@@ -57,7 +61,7 @@ class SnakeBody extends React.Component {
       x: randX,
       y: randY
     }
-    console.log(randX, randY);
+    // console.log(randX, randY);
 
     return foodLocation;
   }
@@ -92,13 +96,13 @@ class SnakeBody extends React.Component {
         newHead.x < 0 ||
         newHead.y < 0) {
         this.die();
-        return
+        return { gameOver: true }
       }
 
 
       let newState = {
         snakeBody: [newHead, ...state.snakeBody],
-        currentDir: this.props.direction
+        currentDir: this.props.direction,
       };
       if (!isFoodEaten) {
         newState.snakeBody.pop();
@@ -177,6 +181,7 @@ class SnakeBody extends React.Component {
         </div>
         < Food size={this.snakeBlockSize} foodLocation={this.state.foodLocation}
         />
+        <CurrentScore gameOver={this.state.gameOver} snakeLength={this.state.snakeBody.length} initSnakeLength={this.initSnakeLength}  />
       </div>
     )
   }
