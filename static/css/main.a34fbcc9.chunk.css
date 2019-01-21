@@ -1,0 +1,2 @@
+body{background-color:#000}.Platform{position:absolute;left:25%;top:25%;background-color:green}.SnakeBody{background-color:#ff0}.SnakeBody,.SnakeHead{position:absolute;border:1px solid #000}.SnakeHead{background-color:#0b9ef3}.Food{position:absolute;border:1px solid #000;background-color:red;border-radius:3px}.current-score{top:40%;left:-45%;right:115%}.best-score,.current-score{position:absolute;color:#fff;font-size:small}.best-score{top:25%;left:115%}
+/*# sourceMappingURL=main.a34fbcc9.chunk.css.map */
