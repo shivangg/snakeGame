@@ -30,10 +30,11 @@ class SnakeBody extends React.Component {
 
     this.state = {
       snakeBody: snakeBody,
-      foodLocation: this.getNewLocation(this.snakeBlockSize),
       currentDir: this.props.direction,
       gameOver: false
     };
+
+    this.state.foodLocation = this.getNewLocation();
 
     this.moveSnake = this.moveSnake.bind(this);
     this.checkFood = this.checkFood.bind(this);
@@ -51,11 +52,26 @@ class SnakeBody extends React.Component {
     }, 100);
   }
 
-  getNewLocation(size) {
+  getNewLocation() {
+
     let randX = parseInt(Math.random() * 100, 10);
     randX -= randX % this.snakeBlockSize;
     let randY = parseInt(Math.random() * 100, 10);
     randY -= randY % this.snakeBlockSize;
+
+    for (let index = 0; index < this.state.snakeBody.length; index += 1) {
+      const bodyBlock = this.state.snakeBody[index];
+
+      if (bodyBlock.x === randX && bodyBlock.y === randY) {
+        randX = parseInt(Math.random() * 100, 10);
+        randX -= randX % this.snakeBlockSize;
+        randY = parseInt(Math.random() * 100, 10);
+        randY -= randY % this.snakeBlockSize;
+        index = 0;
+        console.log("food overlap detected!");
+
+      }
+    }
 
     let foodLocation = {
       x: randX,
@@ -157,7 +173,7 @@ class SnakeBody extends React.Component {
 
   dropFood() {
     // console.log("Drop new Food");
-    let foodLocation = this.getNewLocation(this.snakeBlockSize);
+    let foodLocation = this.getNewLocation();
     this.setState({
       foodLocation: foodLocation
     });
