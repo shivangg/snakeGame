@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/snakeGame/static/js/runtime~main.7a596312.js"
   },
   {
-    "revision": "48793a979c349d013a95d69bc091ed0c",
+    "revision": "615d049fdfbf28c4e86dcb34325fd87e",
     "url": "/snakeGame/index.html"
   }
 ];
