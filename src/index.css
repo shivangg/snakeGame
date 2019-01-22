@@ -4,8 +4,6 @@ body {
 
 .Platform {
   position: absolute;
-  left: 25%;
-  top: 25%;
   background-color: green;
 }
 
@@ -30,17 +28,21 @@ body {
 
 .current-score {
   position: absolute;
+  text-align: center;
   color: white;
   font-size: small;
   top: 40%;
-  left: -45%;
+  left: -25%;
   right: 115%;
+  width: 20%;
 }
 
 .best-score {
   position: absolute;
+  text-align: center;
   color: white;
   font-size: small;
-  top: 25%;
-  left: 115%;
+  top: 33%;
+  left: 105%;
+  width: 20%;
 }
