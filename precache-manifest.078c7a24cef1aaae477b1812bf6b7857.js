@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "32fdd4e963ab46745302",
+    "revision": "ddf04e678d2745b4a650",
     "url": "/snakeGame/static/css/main.b7a73ba5.chunk.css"
   },
   {
-    "revision": "32fdd4e963ab46745302",
-    "url": "/snakeGame/static/js/main.32fdd4e9.chunk.js"
+    "revision": "ddf04e678d2745b4a650",
+    "url": "/snakeGame/static/js/main.ddf04e67.chunk.js"
   },
   {
     "revision": "f370b753e5901661dd5d",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/snakeGame/static/js/runtime~main.7a596312.js"
   },
   {
-    "revision": "615d049fdfbf28c4e86dcb34325fd87e",
+    "revision": "5657eb224c42cb77187d0c3a07c567c4",
     "url": "/snakeGame/index.html"
   }
 ];
