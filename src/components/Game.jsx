@@ -32,12 +32,12 @@ class Game extends React.Component {
     // leave 20% on each side of the shorter dimension
     // for longer width screens
     if (longerWidth) {
-      width = shorter * (1 - 2 * padding) ;
+      width = shorter * (1 - 2 * padding);
       height = width;
-      fieldLeftEdge = longer / 2 - width / 2 ;
-      fieldTopEdge = shorter / 2  - height / 2 ;
+      fieldLeftEdge = longer / 2 - width / 2;
+      fieldTopEdge = shorter / 2 - height / 2;
     } else {
-      height = shorter * (1 - 2 * padding) ;
+      height = shorter * (1 - 2 * padding);
       width = height;
       fieldLeftEdge = shorter / 2 - width / 2;
       fieldTopEdge = longer / 2 - height / 2;
@@ -56,22 +56,9 @@ class Game extends React.Component {
   componentDidMount() {
     window.addEventListener('keydown', event => {
       this.setState(state => {
-
-        let oppDirGiven = (currentDir, newDir) => {
-          const oppDir = {
-            'ArrowRight': 'ArrowLeft',
-            'ArrowLeft': 'ArrowRight',
-            'ArrowUp': 'ArrowDown',
-            'ArrowDown': 'ArrowUp'
-          }
-          return currentDir === oppDir[newDir]
-        }
-
-        if (!oppDirGiven(state.direction, event.key )) {
-          return ({
-            direction: event.key,
-          });
-        }
+        return {
+          direction: event.key,
+        };
       })
     })
   }

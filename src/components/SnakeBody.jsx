@@ -82,21 +82,36 @@ class SnakeBody extends React.Component {
     return foodLocation;
   }
 
-  moveSnakeForward(isFoodEaten, dir) {
+  moveSnakeForward(isFoodEaten, newDir) {
 
     this.setState(state => {
+
+      let oppDirGiven = (currentDir, newDir) => {
+        const oppDir = {
+          'ArrowRight': 'ArrowLeft',
+          'ArrowLeft': 'ArrowRight',
+          'ArrowUp': 'ArrowDown',
+          'ArrowDown': 'ArrowUp'
+        }
+        return currentDir === oppDir[newDir]
+      }
+
+
       let getNewHeadFromDir = () => {
         let newHead = {
           x: state.snakeBody[0].x,
           y: state.snakeBody[0].y
         };
-        if (dir === 'ArrowRight')
+
+        newDir = oppDirGiven(state.currentDir, newDir) ? state.currentDir : newDir;
+
+        if (newDir === 'ArrowRight')
           newHead.x += this.snakeBlockSize;
-        else if (dir === 'ArrowLeft')
+        else if (newDir === 'ArrowLeft')
           newHead.x -= this.snakeBlockSize;
-        else if (dir === 'ArrowUp')
+        else if (newDir === 'ArrowUp')
           newHead.y -= this.snakeBlockSize;
-        else if (dir === 'ArrowDown')
+        else if (newDir === 'ArrowDown')
           newHead.y += this.snakeBlockSize;
 
         return newHead;
@@ -106,7 +121,7 @@ class SnakeBody extends React.Component {
 
       this.eatItself(newHead);
 
-      // dead
+      // dead from wall
       if (newHead.x + this.snakeBlockSize > 100 ||
         newHead.y + this.snakeBlockSize > 100 ||
         newHead.x < 0 ||
@@ -118,7 +133,7 @@ class SnakeBody extends React.Component {
 
       let newState = {
         snakeBody: [newHead, ...state.snakeBody],
-        currentDir: this.props.direction,
+        currentDir: newDir,
       };
       if (!isFoodEaten) {
         newState.snakeBody.pop();
@@ -127,10 +142,10 @@ class SnakeBody extends React.Component {
     })
   }
 
-  moveSnake(dir) {
+  moveSnake(newDir) {
     let isFoodEaten = this.checkFood();
 
-    this.moveSnakeForward(isFoodEaten, dir);
+    this.moveSnakeForward(isFoodEaten, newDir);
   }
 
   checkFood() {
@@ -158,13 +173,13 @@ class SnakeBody extends React.Component {
 
   die() {
     console.log('Imma ded!');
-    // console.trace()
     clearInterval(this.mover);
+    console.trace()
   }
 
   eatItself(newHead) {
 
-    // !oppDir[dir] === this.state.currentDir
+    // !oppDir[newDir] === this.state.currentDir
     for (let bodyState of this.state.snakeBody) {
       this.onSameLocationRun(newHead, bodyState, this.die);
     }
@@ -197,7 +212,7 @@ class SnakeBody extends React.Component {
         </div>
         < Food size={this.snakeBlockSize} foodLocation={this.state.foodLocation}
         />
-        <CurrentScore gameOver={this.state.gameOver} snakeLength={this.state.snakeBody.length} initSnakeLength={this.initSnakeLength}  />
+        <CurrentScore gameOver={this.state.gameOver} snakeLength={this.state.snakeBody.length} initSnakeLength={this.initSnakeLength} />
       </div>
     )
   }
