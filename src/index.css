@@ -1,5 +1,7 @@
 body {
   background-color: black;
+  /* for disabling chrome pull-to-refresh */
+  overflow-y: hidden;
 }
 
 .Platform {

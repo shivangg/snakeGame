@@ -103,7 +103,12 @@ class SnakeBody extends React.Component {
           y: state.snakeBody[0].y
         };
 
-        newDir = oppDirGiven(state.currentDir, newDir) ? state.currentDir : newDir;
+        if (oppDirGiven(state.currentDir, newDir)) {
+          newDir = state.currentDir;
+        }
+        if (window.TouchEvent) {
+          window.dispatchEvent(new TouchEvent('touchend'));
+        }
 
         if (newDir === 'ArrowRight')
           newHead.x += this.snakeBlockSize;
@@ -174,7 +179,7 @@ class SnakeBody extends React.Component {
   die() {
     console.log('Imma ded!');
     clearInterval(this.mover);
-    console.trace()
+    // console.trace()
   }
 
   eatItself(newHead) {

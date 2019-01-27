@@ -1,6 +1,7 @@
 import React from 'react';
 // import SnakeHead from './SnakeHead';
 import SnakeBody from './SnakeBody';
+import TouchListener from './TouchListener';
 
 class Game extends React.Component {
 
@@ -68,6 +69,7 @@ class Game extends React.Component {
     return (
       <div tabIndex="1" style={this.sizes.platform} className='Platform'>
         <SnakeBody size={this.sizes.snake} direction={this.state.direction} />
+        <TouchListener debug={false} />
       </div>
     );
   }
